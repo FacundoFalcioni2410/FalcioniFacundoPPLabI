@@ -45,5 +45,3 @@ int bajaAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[]
 void cargarDescripcionMarca(char descripcion[],int id, eMarcas marca[], int tamColor);
 
 void cargarDescripcionColor(char descripcion[],int id, eColores color[], int tamColor);
-
-

@@ -57,16 +57,15 @@ void mostrarAuto(eAutos x,eMarcas marca[], int tamMarca, eColores color[], int t
 
     cargarDescripcionMarca(nombreMarca,x.idMarca,marca,tamMarca);
     cargarDescripcionColor(nombreColor,x.idColor,color,tamColor);
-    printf("%4d     %5d     %10s       %10s        %4d\n",x.id, x.patente, nombreMarca, nombreColor, x.anioFabricacion.anio);
+    printf("  %4d     %4d     %9s       %6s         %4d\n",x.id, x.patente, nombreMarca, nombreColor, x.anioFabricacion.anio);
 }
-
 
 void mostrarAutos(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor)
 {
     int flag = 0;
 
-    printf("~~~ LISTADO DE AUTOS~~~ \n\n");
-    printf("ID          PATENTE          MARCA  COLOR   MODELO  FECHA DE INGRESO\n\n");
+    printf("                ~~~ LISTADO DE AUTOS~~~ \n\n");
+    printf("   ID    PATENTE      MARCA          COLOR       MODELO\n\n");
 
     for(int i = 0; i < tam; i++)
     {
@@ -85,20 +84,6 @@ void mostrarAutos(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores co
     printf("\n\n");
 }
 
-int menuMarcas()
-{
-    int opcion;
-
-    printf("\n*** MENU MARCAS ***\n\n");
-    printf("1. RENAULT\n");
-    printf("2. FIAT\n");
-    printf("3. FORD\n");
-    printf("4. CHEVROLET\n");
-    printf("5. PEUGEOT");
-    utn_getEntero(&opcion, 3, "Ingrese una opcion: ","ERROR. Opcion ingresada invalida",1,5);
-
-    return opcion;
-}
 int altaAuto(eAutos x[], int tam, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor)
 {
     eAutos auxiliar;
@@ -107,7 +92,7 @@ int altaAuto(eAutos x[], int tam, int proximoId, eMarcas marca[], int tamMarca, 
 
     system("cls");
 
-    printf("~~~ ALTA AUTO ~~~ \n\n");
+    printf("~~~ ALTA AUTO ~~~ \n");
 
     indice = buscarEspacioLibreAutos(x, tam);
 
@@ -122,30 +107,19 @@ int altaAuto(eAutos x[], int tam, int proximoId, eMarcas marca[], int tamMarca, 
         mostrarMarcas(marca,tamMarca);
         mostrarColores(color,tamColor);
 
-        if((utn_getEntero(&auxiliar.patente,3,"Ingrese la patente del auto: ","ERROR. patente invalida (entre 100 y 999)\n",100,999)) == 0 && (utn_getEntero(&auxiliar.idMarca,3,"Ingrese la marca: ","ERROR. Ingrese ID de la marca\n",1000,1004)) == 0 && (utn_getEntero(&auxiliar.idColor,3,"Ingrese el color del auto: ","ERROR. Ingrese el id del color\n",5000,5004)) == 0 && (utn_getEntero(&auxiliar.anioFabricacion.anio,3,"Ingrese el anio de fabricacion: ","ERROR. Anio invalido\n",1940,2020)) == 0)
+        if((utn_getEntero(&auxiliar.patente,3,"Ingrese la patente del auto: ","ERROR. patente invalida (entre 100 y 999)\n",100,999)) == 0 && (utn_getEntero(&auxiliar.idMarca,3,"Ingrese la marca: ","ERROR. Ingrese ID de la marca\n",1000,1004)) == 0 && (utn_getEntero(&auxiliar.idColor,3,"Ingrese el color del auto: ","ERROR. Ingrese el ID del color\n",5000,5004)) == 0 && (utn_getEntero(&auxiliar.anioFabricacion.anio,3,"Ingrese el anio de fabricacion: ","ERROR. Anio invalido\n",1940,2020)) == 0)
         {
-                switch(menuMarcas())
-                {
-                case 1:
-                    auxiliar.idMarca = 1000;
-                    break;
-                case 2:
-                    auxiliar.idMarca = 1001;
-                    break;
-                case 3:
-                    auxiliar.idMarca = 1002;
-                    break;
-                case 4:
-                    auxiliar.idMarca = 1003;
-                    break;
-                }
-
             todoOk = 1;
 
             auxiliar.isEmpty = 0;
 
             x[indice] = auxiliar;
 
+            printf("\nAlta realizada con exito\n\n");
+        }
+        else
+        {
+            printf("Debe ingresar los datos correctamente. \n");
         }
     }
 
@@ -173,8 +147,8 @@ int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores co
     int todoOk;
 
     system("cls");
-    printf("~~~ MODIFICAR EMPLEADO ~~~\n\n");
-    utn_getEntero(&id,3,"Ingrese ID del empleado a modificar:", "ERROR. ID no valido: ",1000,2000);
+    printf("~~~ MODIFICAR AUTO ~~~\n\n");
+    utn_getEntero(&id,3,"Ingrese ID del auto a modificar:", "ERROR. ID no valido: ",1000,2000);
 
     indice = buscarAutoPorId(x,tam,id);
 
@@ -198,15 +172,14 @@ int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores co
                     do
                     {
                         printf("Modificando color...\n");
-                        menuMarcas(color,tamColor);
-                    }while((utn_getEntero(&x[indice].idColor,3,"\nIngrese el id del color: ", "ERROR. ID invalido.\n",5000,5004) == 1));
+                    }while((utn_getEntero(&x[indice].idColor,3,"\nIngrese el id del color: ", "ERROR. ID invalido.\n",5000,5004) == -1));
                     break;
                 case 2:
                     do
                     {
                         printf("Modificando modelo...\n");
 
-                    }while((utn_getEntero(&x[indice].anioFabricacion.anio,3,"Ingrese el anio: ","ERROR. Anio invalido\n",1950,2020)) == 1);
+                    }while((utn_getEntero(&x[indice].anioFabricacion.anio,3,"Ingrese el anio: ","ERROR. Anio invalido\n",1950,2020)) == -1);
                     break;
                 }
                 todoOk = 1;
@@ -229,19 +202,19 @@ int bajaAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[]
     int todoOk;
 
     system("cls");
-    printf("~~~ BAJA EMPLEADO ~~~\n\n");
+    printf("~~~ BAJA AUTO ~~~\n\n");
     utn_getEntero(&id,3,"Ingrese id del auto a dar de baja:", "ERROR. ID no valido: ",1000,2000);
 
     indice = buscarAutoPorId(x,tam,id);
 
     if(indice == -1)
     {
-        printf("\nNo hay ningun empleado ingresado con el ID ingresado");
+        printf("\nNo hay ningun auto con el ID ingresado");
     }
     else
     {
         printf("\n~~~ AUTO A ELIMINAR ~~~\n\n");
-        printf("ID          PATENTE          MARCA     COLOR        MODELO   FECHA DE INGRESO\n\n");
+        printf("ID     PATENTE      MARCA     COLOR     MODELO   \n\n");
         mostrarAuto(x[indice],marca,tamMarca,color,tamColor);
         printf("\n\n Desea eliminar a este auto? ");
         fflush(stdin);

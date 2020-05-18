@@ -1,13 +1,16 @@
 # depslib dependency file v1.0
-1589380398 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\color.c
+1589811445 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\color.c
 	"color.h"
 
 1589374565 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\color.h
 
-1589378582 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\servicio.c
+1589811922 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 	"servicio.h"
 
-1589380408 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\marca.c
+1589811445 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\marca.c
 	"marca.h"
 
 1589379498 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\marca.h
@@ -21,7 +24,7 @@
 
 1589219982 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\utn.h
 
-1589380655 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\auto.c
+1589813398 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -31,11 +34,11 @@
 	"marca.h"
 	"utn.h"
 
-1589379536 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\auto.h
+1589404547 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\auto.h
 	"marca.h"
 	"color.h"
 
-1589379818 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\main.c
+1589812024 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -52,7 +55,7 @@
 
 1589378466 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\servicio.h
 
-1589380274 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\trabajo.c
+1589813137 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\trabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

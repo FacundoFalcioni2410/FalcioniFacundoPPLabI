@@ -8,8 +8,6 @@
 #include "servicio.h"
 #include "utn.h"
 
-
-
 #define TAM 1000
 #define TAMMARCA 5
 #define TAMTRABAJO 1000
@@ -22,7 +20,7 @@ int main()
 {
     eAutos autos[TAM];
     eMarcas marca[TAMMARCA] = { {1000,"Renault"}, {1001,"Fiat"}, {1002,"Ford"}, {1003,"Chevrolet"}, {1004,"Peugeot"} };
-    eColores color[TAMCOLOR] = { {5000,"Negro"}, {5001,"Blanco"}, {5001,"Gris"}, {5003,"Rojo"}, {5004,"Azul"} };
+    eColores color[TAMCOLOR] = { {5000,"Negro"}, {5001,"Blanco"}, {5002,"Gris"}, {5003,"Rojo"}, {5004,"Azul"} };
     eServicios lavado[TAMLAVADO] = { {20000,"Lavado",250}, {20001,"Pulido", 300}, {20002,"Encerado", 400}, {20003,"Completo", 600} };
     eTrabajos trabajos[TAMTRABAJO];
     inicializarAutos(autos,TAM);
@@ -52,6 +50,7 @@ int main()
             bajaAuto(autos,TAM,marca,TAMMARCA,color,TAMCOLOR);
             break;
         case 4:
+            system("cls");
             mostrarAutos(autos,TAM,marca,TAMMARCA,color,TAMCOLOR);
             break;
         case 5:
@@ -75,6 +74,7 @@ int main()
             scanf("%c",&respuesta);
             break;
         }
+        printf("\n");
         system("pause");
         system("cls");
     }while(respuesta == 'n');
@@ -92,9 +92,9 @@ int menu()
     printf("5. LISTAR MARCAS\n");
     printf("6. LISTAR COLORES\n");
     printf("7. ALTA TRABAJO\n");
-    printf("7. ALTA TRABAJO\n");
-    printf("8. LISTAR TRABAJOS\n\n");
-    utn_getEntero(&opcion, 3, "Ingrese una opcion: ", "Error. No es una opcion valida.\n", 1, 8);
+    printf("8. LISTAR TRABAJOS\n");
+    printf("9. SALIR\n\n");
+    utn_getEntero(&opcion, 3, "Ingrese una opcion: ", "Error. No es una opcion valida.\n", 1, 9);
 
     return opcion;
 }
